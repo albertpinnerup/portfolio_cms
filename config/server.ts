@@ -4,6 +4,6 @@ export default ({ env }) => ({
     app: {
         keys: env.array('APP_KEYS'),
     },
-    url: env('PUBLIC_URL')
+    url: env('PUBLIC_URL'),
     proxy: true,
 });
