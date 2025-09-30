@@ -11,7 +11,6 @@ export default [
         config: {
             cookie: {
                 secure: true,
-                sameSite: 'None',
             },
         },
     },
