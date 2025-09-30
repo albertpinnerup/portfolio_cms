@@ -11,6 +11,8 @@ export default [
         config: {
             cookie: {
                 secure: true,
+                sameSite: 'Lax',
+                httpOnly: true,
             },
         },
     },
