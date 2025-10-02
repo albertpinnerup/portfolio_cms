@@ -17,19 +17,9 @@
     "description": {
       "type": "text"
     },
-    "header": {
+    "hero": {
       "type": "component",
-      "component": "layout.header",
-      "repeatable": false
-    },
-    "banner": {
-      "type": "component",
-      "component": "layout.banner",
-      "repeatable": false
-    },
-    "Footer": {
-      "type": "component",
-      "component": "layout.footer",
+      "component": "layout.hero",
       "repeatable": false
     }
   }
