@@ -400,12 +400,10 @@ export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
         draftAndPublish: true;
     };
     attributes: {
-        banner: Schema.Attribute.Component<'layout.banner', false>;
         createdAt: Schema.Attribute.DateTime;
         createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> & Schema.Attribute.Private;
         description: Schema.Attribute.Text;
-        Footer: Schema.Attribute.Component<'layout.footer', false>;
-        header: Schema.Attribute.Component<'layout.header', false>;
+        hero: Schema.Attribute.Component<'layout.hero', false>;
         locale: Schema.Attribute.String & Schema.Attribute.Private;
         localizations: Schema.Attribute.Relation<'oneToMany', 'api::global.global'> &
             Schema.Attribute.Private;

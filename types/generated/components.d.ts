@@ -37,6 +37,18 @@ export interface LayoutHeader extends Struct.ComponentSchema {
     };
 }
 
+export interface LayoutHero extends Struct.ComponentSchema {
+    collectionName: 'components_layout_heroes';
+    info: {
+        displayName: 'Hero';
+    };
+    attributes: {
+        description: Schema.Attribute.Text;
+        name: Schema.Attribute.String;
+        technologies: Schema.Attribute.Component<'shared.technologies', true>;
+    };
+}
+
 export interface SharedLink extends Struct.ComponentSchema {
     collectionName: 'components_shared_links';
     info: {
@@ -64,14 +76,26 @@ export interface SharedLogoLink extends Struct.ComponentSchema {
     };
 }
 
+export interface SharedTechnologies extends Struct.ComponentSchema {
+    collectionName: 'components_shared_technologies';
+    info: {
+        displayName: 'Technologies';
+    };
+    attributes: {
+        title: Schema.Attribute.String;
+    };
+}
+
 declare module '@strapi/strapi' {
     export module Public {
         export interface ComponentSchemas {
             'layout.banner': LayoutBanner;
             'layout.footer': LayoutFooter;
             'layout.header': LayoutHeader;
+            'layout.hero': LayoutHero;
             'shared.link': SharedLink;
             'shared.logo-link': SharedLogoLink;
+            'shared.technologies': SharedTechnologies;
         }
     }
 }
