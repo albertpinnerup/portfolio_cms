@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_shared_projects",
+  "info": {
+    "displayName": "project"
+  },
+  "options": {},
+  "attributes": {
+    "project": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::project.project"
+    },
+    "featured": {
+      "type": "boolean"
+    }
+  },
+  "config": {}
+}

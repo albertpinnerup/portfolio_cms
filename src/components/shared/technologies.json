@@ -4,10 +4,6 @@
     "displayName": "Technologies"
   },
   "options": {},
-  "attributes": {
-    "title": {
-      "type": "string"
-    }
-  },
+  "attributes": {},
   "config": {}
 }

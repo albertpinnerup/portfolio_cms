@@ -76,14 +76,23 @@ export interface SharedLogoLink extends Struct.ComponentSchema {
     };
 }
 
+export interface SharedProject extends Struct.ComponentSchema {
+    collectionName: 'components_shared_projects';
+    info: {
+        displayName: 'project';
+    };
+    attributes: {
+        featured: Schema.Attribute.Boolean;
+        project: Schema.Attribute.Relation<'oneToOne', 'api::project.project'>;
+    };
+}
+
 export interface SharedTechnologies extends Struct.ComponentSchema {
     collectionName: 'components_shared_technologies';
     info: {
         displayName: 'Technologies';
     };
-    attributes: {
-        title: Schema.Attribute.String;
-    };
+    attributes: {};
 }
 
 declare module '@strapi/strapi' {
@@ -95,6 +104,7 @@ declare module '@strapi/strapi' {
             'layout.hero': LayoutHero;
             'shared.link': SharedLink;
             'shared.logo-link': SharedLogoLink;
+            'shared.project': SharedProject;
             'shared.technologies': SharedTechnologies;
         }
     }
