@@ -430,12 +430,14 @@ export interface ApiProjectProject extends Struct.CollectionTypeSchema {
         createdAt: Schema.Attribute.DateTime;
         createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> & Schema.Attribute.Private;
         description: Schema.Attribute.Text;
+        display_title: Schema.Attribute.String;
         featured: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
         image: Schema.Attribute.Media<'images'>;
         locale: Schema.Attribute.String & Schema.Attribute.Private;
         localizations: Schema.Attribute.Relation<'oneToMany', 'api::project.project'> &
             Schema.Attribute.Private;
         publishedAt: Schema.Attribute.DateTime;
+        readable: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
         slug: Schema.Attribute.UID;
         technologies: Schema.Attribute.Relation<'oneToMany', 'api::technology.technology'>;
         title: Schema.Attribute.String;

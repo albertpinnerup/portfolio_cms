@@ -14,8 +14,15 @@
     "title": {
       "type": "string"
     },
+    "display_title": {
+      "type": "string"
+    },
     "description": {
       "type": "text"
+    },
+    "featured": {
+      "type": "boolean",
+      "default": false
     },
     "image": {
       "type": "media",
@@ -35,7 +42,7 @@
       "relation": "oneToMany",
       "target": "api::technology.technology"
     },
-    "featured": {
+    "readable": {
       "type": "boolean",
       "default": false
     }

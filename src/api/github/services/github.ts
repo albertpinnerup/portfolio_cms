@@ -66,7 +66,6 @@ export default ({ strapi }: { strapi: Core.Strapi }) => ({
                     data: {
                         title: repo.name,
                         description: repo.description,
-                        about: `Imported from GitHub: ${repo.url}`,
                     },
                     status: 'published',
                 });
@@ -77,7 +76,6 @@ export default ({ strapi }: { strapi: Core.Strapi }) => ({
                         slug,
                         title: repo.name,
                         description: repo.description,
-                        about: `Imported from GitHub: ${repo.url}`,
                     },
                     status: 'published',
                 });
