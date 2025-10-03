@@ -12,9 +12,9 @@
       "type": "text"
     },
     "technologies": {
-      "type": "component",
-      "component": "shared.technologies",
-      "repeatable": true
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::technology.technology"
     }
   },
   "config": {}

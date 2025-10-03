@@ -45,7 +45,7 @@ export interface LayoutHero extends Struct.ComponentSchema {
     attributes: {
         description: Schema.Attribute.Text;
         name: Schema.Attribute.String;
-        technologies: Schema.Attribute.Component<'shared.technologies', true>;
+        technologies: Schema.Attribute.Relation<'oneToMany', 'api::technology.technology'>;
     };
 }
 

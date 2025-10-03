@@ -21,6 +21,11 @@
       "type": "component",
       "component": "layout.hero",
       "repeatable": false
+    },
+    "projects": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::project.project"
     }
   }
 }

@@ -407,8 +407,62 @@ export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
         locale: Schema.Attribute.String & Schema.Attribute.Private;
         localizations: Schema.Attribute.Relation<'oneToMany', 'api::global.global'> &
             Schema.Attribute.Private;
+        projects: Schema.Attribute.Relation<'oneToMany', 'api::project.project'>;
         publishedAt: Schema.Attribute.DateTime;
         title: Schema.Attribute.String;
+        updatedAt: Schema.Attribute.DateTime;
+        updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> & Schema.Attribute.Private;
+    };
+}
+
+export interface ApiProjectProject extends Struct.CollectionTypeSchema {
+    collectionName: 'projects';
+    info: {
+        displayName: 'project';
+        pluralName: 'projects';
+        singularName: 'project';
+    };
+    options: {
+        draftAndPublish: true;
+    };
+    attributes: {
+        about: Schema.Attribute.RichText;
+        createdAt: Schema.Attribute.DateTime;
+        createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> & Schema.Attribute.Private;
+        description: Schema.Attribute.Text;
+        featured: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+        image: Schema.Attribute.Media<'images'>;
+        locale: Schema.Attribute.String & Schema.Attribute.Private;
+        localizations: Schema.Attribute.Relation<'oneToMany', 'api::project.project'> &
+            Schema.Attribute.Private;
+        publishedAt: Schema.Attribute.DateTime;
+        slug: Schema.Attribute.UID;
+        technologies: Schema.Attribute.Relation<'oneToMany', 'api::technology.technology'>;
+        title: Schema.Attribute.String;
+        updatedAt: Schema.Attribute.DateTime;
+        updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> & Schema.Attribute.Private;
+    };
+}
+
+export interface ApiTechnologyTechnology extends Struct.CollectionTypeSchema {
+    collectionName: 'technologies';
+    info: {
+        displayName: 'technology';
+        pluralName: 'technologies';
+        singularName: 'technology';
+    };
+    options: {
+        draftAndPublish: true;
+    };
+    attributes: {
+        createdAt: Schema.Attribute.DateTime;
+        createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> & Schema.Attribute.Private;
+        description: Schema.Attribute.String;
+        locale: Schema.Attribute.String & Schema.Attribute.Private;
+        localizations: Schema.Attribute.Relation<'oneToMany', 'api::technology.technology'> &
+            Schema.Attribute.Private;
+        publishedAt: Schema.Attribute.DateTime;
+        title: Schema.Attribute.String & Schema.Attribute.Required;
         updatedAt: Schema.Attribute.DateTime;
         updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> & Schema.Attribute.Private;
     };
@@ -846,6 +900,8 @@ declare module '@strapi/strapi' {
             'admin::transfer-token-permission': AdminTransferTokenPermission;
             'admin::user': AdminUser;
             'api::global.global': ApiGlobalGlobal;
+            'api::project.project': ApiProjectProject;
+            'api::technology.technology': ApiTechnologyTechnology;
             'plugin::content-releases.release': PluginContentReleasesRelease;
             'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
             'plugin::i18n.locale': PluginI18NLocale;
