@@ -29,6 +29,15 @@
     },
     "about": {
       "type": "richtext"
+    },
+    "technologies": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::technology.technology"
+    },
+    "featured": {
+      "type": "boolean",
+      "default": false
     }
   }
 }
