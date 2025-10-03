@@ -23,9 +23,9 @@
       "repeatable": false
     },
     "projects": {
-      "type": "component",
-      "component": "shared.project",
-      "repeatable": true
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::project.project"
     }
   }
 }

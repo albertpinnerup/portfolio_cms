@@ -55,33 +55,31 @@ export default ({ strapi }: { strapi: Core.Strapi }) => ({
         for (const repo of repos) {
             const slug = repo.name.toLowerCase();
 
-            const found = await strapi.documents('api::project.project').findMany({
+            const existing = await strapi.documents('api::project.project').findFirst({
                 filters: { slug },
-                limit: 1,
             });
 
-            if (found.length > 0) {
+            if (existing) {
                 // 🔄 Update — do NOT touch "featured"
                 await strapi.documents('api::project.project').update({
-                    documentId: found[0].documentId,
+                    documentId: existing.documentId,
                     data: {
                         title: repo.name,
                         description: repo.description,
                         about: `Imported from GitHub: ${repo.url}`,
                     },
+                    status: 'published',
                 });
                 strapi.log.info(`🔄 Updated project: ${slug}`);
             } else {
-                // ➕ Create — default featured = false
                 await strapi.documents('api::project.project').create({
                     data: {
                         slug,
                         title: repo.name,
                         description: repo.description,
                         about: `Imported from GitHub: ${repo.url}`,
-                        featured: false, // default, you control it manually later
-                        publishedAt: new Date(),
                     },
+                    status: 'published',
                 });
                 strapi.log.info(`✅ Created project: ${slug}`);
             }
