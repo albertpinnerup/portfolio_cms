@@ -5,7 +5,9 @@ export default {
             path: '/github/sync',
             handler: 'github.sync',
             config: {
-                auth: false,
+                auth: {
+                    scope: ['admin'], // 👈 only admins can trigger
+                },
             },
         },
     ],

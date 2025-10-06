@@ -17,6 +17,12 @@
     },
     "description": {
       "type": "string"
+    },
+    "level": {
+      "type": "integer",
+      "default": 0,
+      "min": 0,
+      "max": 100
     }
   }
 }
