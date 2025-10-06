@@ -409,6 +409,7 @@ export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
             Schema.Attribute.Private;
         projects: Schema.Attribute.Relation<'oneToMany', 'api::project.project'>;
         publishedAt: Schema.Attribute.DateTime;
+        technologies: Schema.Attribute.Relation<'oneToMany', 'api::technology.technology'>;
         title: Schema.Attribute.String;
         updatedAt: Schema.Attribute.DateTime;
         updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> & Schema.Attribute.Private;
@@ -460,6 +461,15 @@ export interface ApiTechnologyTechnology extends Struct.CollectionTypeSchema {
         createdAt: Schema.Attribute.DateTime;
         createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> & Schema.Attribute.Private;
         description: Schema.Attribute.String;
+        level: Schema.Attribute.Integer &
+            Schema.Attribute.SetMinMax<
+                {
+                    max: 100;
+                    min: 0;
+                },
+                number
+            > &
+            Schema.Attribute.DefaultTo<0>;
         locale: Schema.Attribute.String & Schema.Attribute.Private;
         localizations: Schema.Attribute.Relation<'oneToMany', 'api::technology.technology'> &
             Schema.Attribute.Private;
