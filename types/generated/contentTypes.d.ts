@@ -416,6 +416,29 @@ export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
     };
 }
 
+export interface ApiNavigationNavigation extends Struct.SingleTypeSchema {
+    collectionName: 'navigations';
+    info: {
+        displayName: 'navigation';
+        pluralName: 'navigations';
+        singularName: 'navigation';
+    };
+    options: {
+        draftAndPublish: true;
+    };
+    attributes: {
+        createdAt: Schema.Attribute.DateTime;
+        createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> & Schema.Attribute.Private;
+        locale: Schema.Attribute.String & Schema.Attribute.Private;
+        localizations: Schema.Attribute.Relation<'oneToMany', 'api::navigation.navigation'> &
+            Schema.Attribute.Private;
+        navLink: Schema.Attribute.Component<'shared.link', true>;
+        publishedAt: Schema.Attribute.DateTime;
+        updatedAt: Schema.Attribute.DateTime;
+        updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> & Schema.Attribute.Private;
+    };
+}
+
 export interface ApiProjectProject extends Struct.CollectionTypeSchema {
     collectionName: 'projects';
     info: {
@@ -912,6 +935,7 @@ declare module '@strapi/strapi' {
             'admin::transfer-token-permission': AdminTransferTokenPermission;
             'admin::user': AdminUser;
             'api::global.global': ApiGlobalGlobal;
+            'api::navigation.navigation': ApiNavigationNavigation;
             'api::project.project': ApiProjectProject;
             'api::technology.technology': ApiTechnologyTechnology;
             'plugin::content-releases.release': PluginContentReleasesRelease;
