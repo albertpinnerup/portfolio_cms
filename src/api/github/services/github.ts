@@ -65,7 +65,7 @@ export default ({ strapi }: { strapi: Core.Strapi }) => ({
                     documentId: existing.documentId,
                     data: {
                         title: repo.name,
-                        description: repo.description,
+                        description: existing.description || repo.description, // Only update description if it was empty
                     },
                     status: 'published',
                 });
