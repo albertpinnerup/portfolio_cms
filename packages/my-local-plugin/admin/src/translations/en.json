@@ -1,0 +1,16 @@
+{
+  "plugin.name": "GitHub Sync",
+  "settings.section.label": "GitHub Sync",
+  "settings.page.label": "Settings",
+  "settings.page.title": "GitHub Sync",
+  "settings.page.subtitle": "Import your public GitHub repositories into Strapi project entries.",
+  "settings.overview.title": "What this plugin does",
+  "settings.overview.body": "This plugin reads repositories from the configured GitHub account and creates or updates entries in your project collection. Existing featured flags remain untouched, so manual curation inside Strapi is preserved.",
+  "settings.requirements.title": "Required environment variables",
+  "settings.actions.title": "Actions",
+  "settings.actions.body": "Run a manual sync at any time to fetch the latest repositories and push them into your project content type.",
+  "settings.actions.sync": "Sync now",
+  "settings.actions.result": "Last run: {created} created, {updated} updated, {total} total processed.",
+  "settings.sync.success": "GitHub sync finished. {total} repositories processed.",
+  "settings.sync.error": "GitHub sync failed. Check your plugin server logs and GitHub credentials."
+}
