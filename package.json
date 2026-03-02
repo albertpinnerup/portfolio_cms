@@ -3,13 +3,18 @@
     "version": "0.1.0",
     "private": true,
     "description": "A Strapi application",
+    "workspaces": [
+        "packages/*"
+    ],
     "scripts": {
-        "build": "strapi build",
+        "build:plugins": "npm run build --workspaces",
+        "build:strapi": "strapi build",
+        "build": "npm run build:plugins && npm run build:strapi",
+        "dev": "strapi develop",
+        "start": "strapi start",
         "console": "strapi console",
         "deploy": "strapi deploy",
-        "dev": "strapi develop",
         "develop": "strapi develop",
-        "start": "strapi start",
         "strapi": "strapi",
         "upgrade": "npx @strapi/upgrade latest",
         "upgrade:dry": "npx @strapi/upgrade latest --dry"

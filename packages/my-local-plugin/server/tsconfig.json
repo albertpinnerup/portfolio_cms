@@ -1,0 +1,13 @@
+{
+  "extends": "@strapi/typescript-utils/tsconfigs/server",
+  "include": ["./src/**/*", "../../../types/**/*.d.ts"],
+  "compilerOptions": {
+    "baseUrl": ".",
+    "rootDir": ".",
+    "typeRoots": ["./node_modules/@types", "../node_modules/@types"],
+    "paths": {
+      "@strapi/strapi": ["../../../node_modules/@strapi/strapi"],
+      "@strapi/types": ["../../../node_modules/@strapi/types"]
+    }
+  }
+}
