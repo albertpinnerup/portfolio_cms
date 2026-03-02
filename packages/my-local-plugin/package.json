@@ -19,7 +19,9 @@
       "default": "./dist/server/index.js"
     }
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "strapi-plugin build",
     "watch": "strapi-plugin watch",
@@ -67,3 +69,4 @@
   "license": "MIT",
   "author": "Albert Pinnerup <albert.pinnerup@gmail.com>"
 }
+

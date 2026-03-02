@@ -4,11 +4,15 @@ const controller = ({ strapi }: { strapi: Core.Strapi }) => ({
   index(ctx) {
     ctx.body = strapi
       .plugin('github-sync')
-      // the name of the service file & the method.
-      .service('sync')
+      .service('service')
       .getWelcomeMessage();
+  },
+
+  async sync(ctx) {
+    const result = await strapi.plugin('github-sync').service('sync').sync();
+
+    ctx.body = result;
   },
 });
 
 export default controller;
-

@@ -1,7 +1,7 @@
-import { getTranslation } from "./utils/getTranslation";
-import { PLUGIN_ID } from "./pluginId";
-import { Initializer } from "./components/Initializer";
-import { PluginIcon } from "./components/PluginIcon";
+import { getTranslation } from './utils/getTranslation';
+import { PLUGIN_ID } from './pluginId';
+import { Initializer } from './components/Initializer';
+import { PluginIcon } from './components/PluginIcon';
 
 export default {
   register(app: any) {
@@ -13,7 +13,7 @@ export default {
         defaultMessage: PLUGIN_ID,
       },
       Component: async () => {
-        const { App } = await import("./pages/App");
+        const { App } = await import('./pages/App');
 
         return App;
       },
@@ -25,15 +25,39 @@ export default {
       isReady: false,
       name: PLUGIN_ID,
     });
+
+    app.createSettingSection(
+      {
+        id: PLUGIN_ID,
+        intlLabel: {
+          id: getTranslation('settings.section.label'),
+          defaultMessage: 'GitHub Sync',
+        },
+      },
+      [
+        {
+          intlLabel: {
+            id: getTranslation('settings.page.label'),
+            defaultMessage: 'Settings',
+          },
+          id: 'settings',
+          to: PLUGIN_ID,
+          Component: async () => {
+            const { SettingsPage } = await import('./pages/SettingsPage');
+
+            return SettingsPage;
+          },
+          permissions: [],
+        },
+      ]
+    );
   },
 
   async registerTrads({ locales }: { locales: string[] }) {
     return Promise.all(
       locales.map(async (locale) => {
         try {
-          const { default: data } = await import(
-            `./translations/${locale}.json`
-          );
+          const { default: data } = await import(`./translations/${locale}.json`);
 
           return { data, locale };
         } catch {

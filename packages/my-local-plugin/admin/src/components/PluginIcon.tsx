@@ -1,5 +1,5 @@
-import { GitHub } from '@strapi/icons/symbols';
+import { Rocket } from '@strapi/icons';
 
-const PluginIcon = () => <GitHub fill="currentColor" color="currentColor" />;
+const PluginIcon = () => <Rocket />;
 
 export { PluginIcon };
